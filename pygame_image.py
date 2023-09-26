@@ -11,8 +11,12 @@ def main():
 
     B3_img = pg.image.load("fig/3.png")
     B3_img = pg.transform.flip(B3_img, True, False)
-    B3_img2 = pg.transform.rotozoom(B3_img, 10, 1.0)
-    B3_imgs = [B3_img, B3_img2]
+    B3_img2 = pg.transform.rotozoom(B3_img, 2, 1.0) 
+    B3_img3 = pg.transform.rotozoom(B3_img, 5, 1.0)
+    B3_img4= pg.transform.rotozoom(B3_img, 10, 1.0)
+    B3_img5 = pg.transform.rotozoom(B3_img, 5, 1.0)
+    B3_img6 = pg.transform.rotozoom(B3_img, 2, 1.0)
+    B3_imgs = [B3_img, B3_img2,B3_img3,B3_img4,B3_img5,B3_img6]
     tmr = 0
 
     while True:
@@ -27,14 +31,13 @@ def main():
         screen.blit(bg_img2, [4800-x, 0])
         screen.blit(bg_img, [6400-x, 0])
 
-        screen.blit(B3_imgs[tmr%2], [300,200])
+        screen.blit(B3_imgs[tmr%6], [300,200])
         pg.display.update()
-        tmr += 10
+        tmr += 5
       
-        clock.tick(40)
+        clock.tick(30)
 
 
 if __name__ == "__main__":
     pg.init()
     main()
-    pg.quit()
